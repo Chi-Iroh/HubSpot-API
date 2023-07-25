@@ -1,4 +1,4 @@
-async function getAllContacts(apiKey : string) {
+export async function getAll(apiKey : string) {
     const response = await fetch(
         "https://api.hubapi.com/crm/v3/objects/contacts",
         {
