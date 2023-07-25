@@ -8,7 +8,7 @@ declare class TransactionsManager {};
 
 export class Client {
     private apiKey : string;
-    private httpRequest : HttpRequestManager;
+    private httpRequestManager : HttpRequestManager;
     public contactsManager : ContactsManager;
     public companiesManager : CompaniesManager;
     public ticketsManager : TicketsManager;
@@ -16,7 +16,7 @@ export class Client {
 
     constructor(apiKey : string) {
         this.apiKey = apiKey;
-        this.httpRequest = new HttpRequestManager(this.apiKey);
-        this.contactsManager = new ContactsManager(this.httpRequest);
+        this.httpRequestManager = new HttpRequestManager(this.apiKey);
+        this.contactsManager = new ContactsManager(this.httpRequestManager);
     }
 };
