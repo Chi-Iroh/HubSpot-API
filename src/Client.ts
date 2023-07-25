@@ -7,12 +7,12 @@ declare class TicketsManager {};
 declare class TransactionsManager {};
 
 export class Client {
-    apiKey : string;
-    httpRequest : HttpRequestManager;
-    contactsManager : ContactsManager;
-    companiesManager : CompaniesManager;
-    ticketsManager : TicketsManager;
-    transactionsManager : TransactionsManager;
+    private apiKey : string;
+    private httpRequest : HttpRequestManager;
+    public contactsManager : ContactsManager;
+    public companiesManager : CompaniesManager;
+    public ticketsManager : TicketsManager;
+    public transactionsManager : TransactionsManager;
 
     constructor(apiKey : string) {
         this.apiKey = apiKey;
