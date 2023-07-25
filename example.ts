@@ -1,5 +1,9 @@
-import { Client } from "./src/Client"
+import { Client } from "./src/Client";
 
-var client = new Client("HubSpot API Key");
-client.contactsManager.GetAll().then(console.log);
-client.contactsManager.GetById(151).then(console.log);
+async function example() {
+    let client = new Client("HubSpot API Key");
+    await client.contactsManager.GetAll().then(console.log);
+    await client.contactsManager.GetById(151).then(console.log);
+}
+
+example();

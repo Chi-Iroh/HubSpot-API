@@ -1,12 +1,13 @@
+import { HttpRequestManager } from "../HttpRequestManager";
 import { GetAll } from "./GetAll";
-import { GetById } from "./GetById"
+import { GetById } from "./GetById";
 
 export class ContactsManager {
-    private apiKey : string;
-    public GetAll : Function = () => GetAll(this.apiKey);
-    public GetById : Function = (id : number) => GetById(this.apiKey, id);
+    private httpRequest : HttpRequestManager;
+    public GetAll : Function = () => GetAll(this.httpRequest);
+    public GetById : Function = (id : number) => GetById(this.httpRequest, id);
 
-    constructor(apiKey : string) {
-        this.apiKey = apiKey;
+    constructor(httpRequest : HttpRequestManager) {
+        this.httpRequest = httpRequest;
     }
 };

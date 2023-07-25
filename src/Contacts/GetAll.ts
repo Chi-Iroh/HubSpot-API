@@ -1,16 +1,7 @@
-export async function GetAll(apiKey : string) {
-    const response = await fetch(
-        "https://api.hubapi.com/crm/v3/objects/contacts",
-        {
-            method: "GET",
-            headers: {
-                "Authorization" : `Bearer ${apiKey}`
-            }
-        }
-    );
+import { HttpRequestManager } from "../HttpRequestManager";
 
-    if (!response.ok) {
-        throw new Error(`${response.statusText} ${await response.text()}`);
-    }
-    return response.json();
+export async function GetAll(httpRequest : HttpRequestManager) {
+    return httpRequest.send(
+        "https://api.hubapi.com/crm/v3/objects/contacts"
+    );
 }
