@@ -3,11 +3,11 @@ import { GetAll } from "./GetAll";
 import { GetById } from "./GetById";
 
 export class ContactsManager {
-    private httpRequest : HttpRequestManager;
-    public GetAll : Function = () => GetAll(this.httpRequest);
-    public GetById : Function = (id : number) => GetById(this.httpRequest, id);
+    private httpRequestManager : HttpRequestManager;
+    public GetAll : Function = () => GetAll(this.httpRequestManager);
+    public GetById : Function = (id : number) => GetById(this.httpRequestManager, id);
 
-    constructor(httpRequest : HttpRequestManager) {
-        this.httpRequest = httpRequest;
+    constructor(httpRequestManager : HttpRequestManager) {
+        this.httpRequestManager = httpRequestManager;
     }
 };
