@@ -19,6 +19,9 @@ He gave me confidence in most of my choices and said my code is globally okay, b
 As the project is quite small for now, and because of my lack of experience in the language, it took me some time to understand the direction to take.  
 That's why I didn't create any branch like I usually do, but I created a dev one to solve one of my friend's issues, then merged it into master when closed.  
 
+## Documentation
+Generated with TypeDoc : `npx typedoc --entryPointStrategy expand ./src`
+
 ## Setup
 Install <ins>nodejs</ins> and <ins>ts-node</ins> with your package manager (pacman, apt, dnf etc..).
 
