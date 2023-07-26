@@ -2,11 +2,11 @@ import { Client } from "./src/Client";
 
 function PrintContact(contact) : void {
     console.log(
-        `Contact n°${contact.id}\n`,
-        `\tFirst name : ${contact.properties.firstname}\n`,
-        `\tLast name : ${contact.properties.lastname}\n`,
-        `\tEmail : ${contact.properties.email}\n`,
-        `\tCreation date : ${contact.properties.createdate}\n`,
+        `Contact n°${contact.id}\n`                                         +
+        `\tFirst name : ${contact.properties.firstname}\n`                  +
+        `\tLast name : ${contact.properties.lastname}\n`                    +
+        `\tEmail : ${contact.properties.email}\n`                           +
+        `\tCreation date : ${contact.properties.createdate}\n`              +
         `\tLast modification date : ${contact.properties.lastmodifieddate}`
     );
 }
