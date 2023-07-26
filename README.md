@@ -29,6 +29,9 @@ ts-node Example.ts
 
 Example.ts is only here to show how to use my client, it has nothing to do in a real-world app. Same for Client.PrintError, its interest is quite limited in a website with a backend client, I made it to test my features with Example.ts and format errors in a more human-readable way.  
 
+I didn't use env variable in GitHub to store API key (my friend created an issue about that) because I hadn't much time for so much to learn.  
+Nevertheless, I added strong checks to make sure API key isn't pushed (see in Hooks section below).  
+
 ## Architecture
 ```mermaid
 graph TD;
