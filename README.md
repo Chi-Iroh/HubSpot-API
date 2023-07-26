@@ -35,6 +35,8 @@ Then, `Client` has a class to display errors thrown by the request (only formatt
 The architecture represents a complete project, most of the features aren't implemented (they're marked with <ins>NI</ins> -> <b>Not Implemented</b>).
 The main point here is how is the code organized rather than rushing features and ending with an unmaintable and duplicated code.
 
+<br>
+
 ```mermaid
 graph TD;
     A[Contacts manager] --> B[Create];
