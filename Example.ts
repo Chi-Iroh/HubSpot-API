@@ -1,6 +1,6 @@
 import { Client } from "./src/Client";
 
-function PrintContact(contact) : void {
+function PrintContact(contact : any) : void {
     console.log(
         `Contact n°${contact.id}\n`                                         +
         `\tFirst name : ${contact.properties.firstname}\n`                  +
@@ -24,7 +24,7 @@ async function Example(client : Client) : Promise<void> {
         "marketingqualifiedlead"
     );
     await client.contactsManager.GetAll().then(
-        (contacts) => {
+        (contacts : any) => {
             for (let contact of contacts.results) {
                 PrintContact(contact);
             }

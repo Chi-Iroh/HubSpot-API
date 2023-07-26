@@ -1,11 +1,9 @@
 import { ContactsManager } from "./Contacts/ContactsManager";
+import { CompaniesManager } from "./Companies/CompaniesManager";
+import { TicketsManager } from "./Tickets/TicketsManager";
+import { TransactionsManager } from "./Transactions/TransactionsManager";
 import { HttpRequestManager } from "./HttpRequestManager";
 import { PrintError } from "./PrintError";
-
-// Waiting for implementation
-declare class CompaniesManager {};
-declare class TicketsManager {};
-declare class TransactionsManager {};
 
 export class Client {
     private apiKey : string;
@@ -19,6 +17,9 @@ export class Client {
         this.apiKey = apiKey;
         this.httpRequestManager = new HttpRequestManager(this.apiKey);
         this.contactsManager = new ContactsManager(this.httpRequestManager);
+        this.companiesManager = new CompaniesManager(this.httpRequestManager);
+        this.ticketsManager = new TicketsManager(this.httpRequestManager);
+        this.transactionsManager = new TransactionsManager(this.httpRequestManager);
     }
 
     public static PrintError : Function = PrintError;
