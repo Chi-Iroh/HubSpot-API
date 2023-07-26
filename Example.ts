@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import { Client } from "./src/Client";
 
 function PrintContact(contact : any) : void {
@@ -12,7 +13,7 @@ function PrintContact(contact : any) : void {
 }
 
 async function Example(client : Client) : Promise<void> {
-    await client.contactsManager.GetById(151).then(console.log); // bad ID error not properly handled (must parse HTML error page)
+    await client.contactsManager.GetById(151).then(console.log);
     await client.contactsManager.GetAll().then(console.log);
     await client.contactsManager.Create(
         "example7@hubspot.com",
@@ -34,10 +35,14 @@ async function Example(client : Client) : Promise<void> {
 
 async function Main() : Promise<void> {
     try {
-        let client = new Client("HubSpot API Key"); // bad API key error properly handled
+        let client = new Client("HubSpot API Key");
         await Example(client);
     } catch (error : any) {
-        Client.PrintError(error);
+        if (error instanceof AxiosError) {
+            Client.PrintError(error);
+        } else {
+            console.error(error);
+        }
     }
 }
 

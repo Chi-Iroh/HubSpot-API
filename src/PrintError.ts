@@ -1,3 +1,5 @@
+import { AxiosError } from "axios";
+
 interface HubSpotError {
     status          : string;
     message         : string;
@@ -5,24 +7,17 @@ interface HubSpotError {
     category        : string;
 };
 
-function ExtractErrorNameAndDetails(message : string) : [string, HubSpotError] {
-    const startOfJson : number = message.indexOf('{');
-    const name : string = message.substring(0, startOfJson);
-    const details : string = message.substring(startOfJson);
-    console.log(message);
-    return [name, JSON.parse(details)];
-}
+export function PrintError(error : AxiosError) : void {
+    const hubSpotError : HubSpotError = error.response?.data as HubSpotError;
 
-function TitleString(str : string) : string {
-    return str.charAt(0).toUpperCase() + str.substring(1);
-}
-
-export function PrintError(error : Error) : void {
-    const [shortDescription, details] = ExtractErrorNameAndDetails(error.message);
-    console.error(
-        `${TitleString(details.status)} : ${shortDescription}\n`    +
-        `Message : ${details.message}\n`                            +
-        `Correlation ID : ${details.correlationId}\n`               +
-        `Category : ${details.category}`
-    );
+    if (hubSpotError != undefined) {
+        console.error(
+            `Status ${error.response?.status} : ${error.response?.statusText}\n`    +
+            `Message : ${hubSpotError.message}\n`                                   +
+            `Correlation ID : ${hubSpotError.correlationId}\n`                      +
+            `Category : ${hubSpotError.category}`
+        );
+    } else {
+        console.error(`${error.cause?.name} : ${error.cause?.message}`);
+    }
 }
