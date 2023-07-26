@@ -35,7 +35,7 @@ Then, `Client` has a class to display errors thrown by the request (only formatt
 The architecture represents a complete project, most of the features aren't implemented (they're marked with <ins>NI</ins> -> <b>Not Implemented</b>).
 The main point here is how is the code organized rather than rushing features and ending with an unmaintable and duplicated code.
 
-<br>
+<hr style="border:0px solid gray">
 
 ```mermaid
 graph TD;
@@ -43,7 +43,10 @@ graph TD;
     A --> C[Get all];
     A --> D[Get by ID];
     A --> E["Remove (NI)"];
+    A --> F["Http Request Manager"]
 ```
+
+<hr style="border:0px solid gray">
 
 ```mermaid
 graph TD;
@@ -52,7 +55,11 @@ graph TD;
     A --> D["Create (NI)"];
     A --> E["Update (NI)"];
     A --> F["Remove (NI)"];
+    A --> G["Http Request Manager"]
 ```
+
+<hr style="border:0px solid gray">
+
 ```mermaid
 graph TD;
     A[Tickets manager] --> B["Get all (NI)"];
@@ -60,7 +67,11 @@ graph TD;
     A --> D["Create (NI)"];
     A --> E["Update (NI)"];
     A --> F["Remove (NI)"];
+    A --> G["Http Request Manager"]
 ```
+
+<hr style="border:0px solid gray">
+
 ```mermaid
 graph TD;
     A[Transactions manager] --> B["Get all (NI)"];
@@ -68,7 +79,15 @@ graph TD;
     A --> D["Create (NI)"];
     A --> E["Update (NI)"];
     A --> F["Remove (NI)"];
+    A --> G["Http Request Manager"]
 ```
+
+<hr style="border:0px solid gray">
+
+Each of these 4 subclasses aims to manage one kind of API provided by HubSpot, to separate tasks.  
+They provide some services by sending HTTP requests to HubSpot APIs.
+The `Client` class has a member of type `HttpRequestManager`, which is used by subclasses and their services.  
+It permits services delegating the request to a specific class whose unique job is this, following **SRP** (Single Responsibility Principle) in SOLID.
 
 ## Hooks
 <ul>
