@@ -26,12 +26,5 @@ export function Create(httpRequestManager : HttpRequestManager, contactPropertie
         }
     );
 
-    return httpRequestManager.send(
-        ApiUrl.API_URL_CONTACTS,
-        "POST",
-        new Headers({
-            "content-type" : "application/json;charset=UTF-8"
-        }),
-        properties
-    );
+    return httpRequestManager.create(ApiUrl["API_URL_CONTACTS"], properties);
 }

@@ -9,6 +9,7 @@ function ExtractErrorNameAndDetails(message : string) : [string, HubSpotError] {
     const startOfJson : number = message.indexOf('{');
     const name : string = message.substring(0, startOfJson);
     const details : string = message.substring(startOfJson);
+    console.log(message);
     return [name, JSON.parse(details)];
 }
 

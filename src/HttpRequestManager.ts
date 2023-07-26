@@ -1,33 +1,39 @@
+import axios, { AxiosHeaders, AxiosResponse } from "axios";
+import { ApiTarget } from "./ApiUrl";
+import * as ApiUrl from "./ApiUrl";
+
 export type HttpRequestType = "GET" | "POST";
 
 export class HttpRequestManager {
     private apiKey : string;
+    private authenticationHeader : AxiosHeaders;
 
     constructor(apiKey : string) {
         this.apiKey = apiKey;
+        this.authenticationHeader = new AxiosHeaders({ "Authorization" : `Bearer ${this.apiKey}` });
     }
 
-    public async send(url : string, requestType : HttpRequestType, headers : Headers = new Headers(), body : string = "") : Promise<any> {
-        if (headers.has("Authorization")) {
-            throw new Error("Header cannot have 'Authorization' field !");
-        }
-        headers.set("Authorization", `Bearer ${this.apiKey}`);
-
-        const response : Response = await fetch(
-            url,
-            {
-                method : requestType,
-                headers : headers,
-                body : (requestType == "GET") ? null : body
-            }
+    public async findAll(target : ApiTarget) : Promise<any> {
+        const response = await axios.get(
+            target,
+            { "headers" : this.authenticationHeader }
         );
+        return await response.data;
+    }
 
-        if (!response.ok) {
-            headers.delete("Authorization");
-            throw new Error(`${response.statusText} ${await response.text()}`);
-        }
-        headers.delete("Authorization");
+    public async find(target : ApiTarget, id : number) : Promise<any> {
+        const response = await axios.get(
+            `${target}/${id}`,
+            { "headers" : this.authenticationHeader }
+        );
+        return await response.data;
+    }
 
-        return await response.json();
+    public async create(target : ApiTarget, body : string) : Promise<any> {
+        const response = await axios.post(
+            target,
+            { "headers" : this.authenticationHeader.concat({"content-type" : "application/json;charset=UTF-8"}) }
+        );
+        return await response.data;
     }
 };
