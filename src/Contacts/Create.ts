@@ -1,16 +1,26 @@
 import { HttpRequestManager } from "../HttpRequestManager";
 
-export async function Create(httpRequestManager : HttpRequestManager, email : string, firstName : string, lastName : string, phone : string, company : string, website : string, lifeCycleStage : string) : Promise<any> {
+export interface ContactProperties {
+    email : string;
+    firstName : string;
+    lastName : string;
+    phone : string;
+    company : string;
+    website : string;
+    lifeCycleStage : string;
+};
+
+export async function Create(httpRequestManager : HttpRequestManager, contactProperties : ContactProperties) : Promise<any> {
     const properties = JSON.stringify(
         {
             "properties" : {
-                "email" : email,
-                "firstname" : firstName,
-                "lastname" : lastName,
-                "phone" : phone,
-                "company" : company,
-                "website" : website,
-                "lifecyclestage" : lifeCycleStage
+                "email" : contactProperties.email,
+                "firstname" : contactProperties.firstName,
+                "lastname" : contactProperties.lastName,
+                "phone" : contactProperties.phone,
+                "company" : contactProperties.company,
+                "website" : contactProperties.website,
+                "lifecyclestage" : contactProperties.lifeCycleStage
             }
         }
     );
