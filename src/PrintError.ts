@@ -1,8 +1,8 @@
 interface HubSpotError {
-    status : string;
-    message : string;
-    correlationId : string;
-    category : string;
+    status          : string;
+    message         : string;
+    correlationId   : string;
+    category        : string;
 };
 
 function ExtractErrorNameAndDetails(message : string) : [string, HubSpotError] {
@@ -19,9 +19,9 @@ function TitleString(str : string) : string {
 export function PrintError(error : Error) : void {
     const [shortDescription, details] = ExtractErrorNameAndDetails(error.message);
     console.error(
-        `${TitleString(details.status)} : ${shortDescription}\n`         +
-        `Message : ${details.message}\n`                +
-        `Correlation ID : ${details.correlationId}\n`   +
+        `${TitleString(details.status)} : ${shortDescription}\n`    +
+        `Message : ${details.message}\n`                            +
+        `Correlation ID : ${details.correlationId}\n`               +
         `Category : ${details.category}`
     );
 }
