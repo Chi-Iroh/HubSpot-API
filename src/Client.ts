@@ -1,5 +1,6 @@
 import { ContactsManager } from "./Contacts/ContactsManager";
 import { HttpRequestManager } from "./HttpRequestManager";
+import { PrintError } from "./PrintError";
 
 // Waiting for implementation
 declare class CompaniesManager {};
@@ -19,4 +20,6 @@ export class Client {
         this.httpRequestManager = new HttpRequestManager(this.apiKey);
         this.contactsManager = new ContactsManager(this.httpRequestManager);
     }
+
+    public static PrintError : Function = PrintError;
 };

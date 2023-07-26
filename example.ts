@@ -11,10 +11,9 @@ function PrintContact(contact) {
     );
 }
 
-async function Example() {
-    let client = new Client("HubSpot API Key");
+async function Example(client : Client) {
     await client.contactsManager.GetAll().then(console.log);
-    await client.contactsManager.GetById(151).then(console.log);
+    await client.contactsManager.GetById(151).then(console.log); // bad ID error not properly handled (must parse HTML error page)
     await client.contactsManager.Create(
         "example@hubspot.com",
         "Jane",
@@ -33,4 +32,13 @@ async function Example() {
     );
 }
 
-Example();
+async function Main() {
+    try {
+        let client = new Client("HubSpot API Key"); // bad API key error properly handled
+        await Example(client);
+    } catch (error : any) {
+        Client.PrintError(error);
+    }
+}
+
+Main()
