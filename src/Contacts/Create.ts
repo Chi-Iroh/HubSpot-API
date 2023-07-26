@@ -10,7 +10,7 @@ export interface ContactProperties {
     lifeCycleStage : string;
 };
 
-export async function Create(httpRequestManager : HttpRequestManager, contactProperties : ContactProperties) : Promise<any> {
+export function Create(httpRequestManager : HttpRequestManager, contactProperties : ContactProperties) : Promise<any> {
     const properties = JSON.stringify(
         {
             "properties" : {

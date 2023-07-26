@@ -12,8 +12,8 @@ function PrintContact(contact) : void {
 }
 
 async function Example(client : Client) : Promise<void> {
-    await client.contactsManager.GetAll().then(console.log);
     await client.contactsManager.GetById(151).then(console.log); // bad ID error not properly handled (must parse HTML error page)
+    await client.contactsManager.GetAll().then(console.log);
     await client.contactsManager.Create(
         "example7@hubspot.com",
         "Jane",
