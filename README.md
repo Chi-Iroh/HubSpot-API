@@ -57,3 +57,8 @@ graph TD;
     A --> E["Update (NI)"];
     A --> F["Remove (NI)"];
 ```
+
+## Hooks
+<ul>
+<li><code>prepare-commit-msg</code> checks if the commit message is like <code>[TYPE] : Message</code>, to have clear commit names and instantly understand what's going on.</li>
+<li><code>pre-commit</code> checks if there's nothing inside any file which matches with HubSpot API key pattern. It also check filenames themselves (including directories).
