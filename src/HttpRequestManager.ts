@@ -1,7 +1,7 @@
 export type HttpRequestType = "GET" | "POST";
 
 export class HttpRequestManager {
-    protected apiKey : string;
+    private apiKey : string;
 
     constructor(apiKey : string) {
         this.apiKey = apiKey;
