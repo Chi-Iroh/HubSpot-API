@@ -1,6 +1,6 @@
 import { Client } from "./src/Client";
 
-function PrintContact(contact) {
+function PrintContact(contact) : void {
     console.log(
         `Contact n°${contact.id}\n`,
         `\tFirst name : ${contact.properties.firstname}\n`,
@@ -11,7 +11,7 @@ function PrintContact(contact) {
     );
 }
 
-async function Example(client : Client) {
+async function Example(client : Client) : Promise<void> {
     await client.contactsManager.GetAll().then(console.log);
     await client.contactsManager.GetById(151).then(console.log); // bad ID error not properly handled (must parse HTML error page)
     await client.contactsManager.Create(
@@ -32,7 +32,7 @@ async function Example(client : Client) {
     );
 }
 
-async function Main() {
+async function Main() : Promise<void> {
     try {
         let client = new Client("HubSpot API Key"); // bad API key error properly handled
         await Example(client);

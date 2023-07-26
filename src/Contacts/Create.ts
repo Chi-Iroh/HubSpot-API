@@ -1,6 +1,6 @@
 import { HttpRequestManager } from "../HttpRequestManager";
 
-export async function Create(httpRequestManager : HttpRequestManager, email : string, firstName : string, lastName : string, phone : string, company : string, website : string, lifeCycleStage : string) {
+export async function Create(httpRequestManager : HttpRequestManager, email : string, firstName : string, lastName : string, phone : string, company : string, website : string, lifeCycleStage : string) : Promise<any> {
     const properties = JSON.stringify(
         {
             "properties" : {

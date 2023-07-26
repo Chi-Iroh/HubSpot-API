@@ -16,7 +16,7 @@ function TitleString(str : string) : string {
     return str.charAt(0).toUpperCase() + str.substring(1);
 }
 
-export function PrintError(error : Error) {
+export function PrintError(error : Error) : void {
     const [shortDescription, details] = ExtractErrorNameAndDetails(error.message);
     console.error(
         `${TitleString(details.status)} : ${shortDescription}\n`         +

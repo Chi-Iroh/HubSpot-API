@@ -6,7 +6,7 @@ import { GetById } from "./GetById";
 export class ContactsManager {
     private httpRequestManager : HttpRequestManager;
 
-    private WrapperCreate(email : string, firstName : string, lastName : string, phone : string, company : string, website : string, lifeCycleStage : string) {
+    private WrapperCreate(email : string, firstName : string, lastName : string, phone : string, company : string, website : string, lifeCycleStage : string) : Promise<any> {
         return Create(this.httpRequestManager, email, firstName, lastName, phone, company, website, lifeCycleStage);
     }
 
