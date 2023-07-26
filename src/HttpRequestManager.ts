@@ -7,7 +7,7 @@ export class HttpRequestManager {
         this.apiKey = apiKey;
     }
 
-    public async send(url : string, requestType : HttpRequestType = "GET", headers : Headers = new Headers(), body : string = "") : Promise<any> {
+    public async send(url : string, requestType : HttpRequestType, headers : Headers = new Headers(), body : string = "") : Promise<any> {
         if (headers.has("Authorization")) {
             throw new Error("Header cannot have 'Authorization' field !");
         }
