@@ -1,0 +1,25 @@
+#!/bin/sh
+
+function check {
+    apiKeyPattern="...-...-........-....-....-....-............"
+    keyPatternFoundError="'$filename' matches HubSpot API key pattern '$apiKeyPattern' "'!'
+    echo "$filename" | grep -E -e "$apiKeyPattern" > /dev/null
+    if (($? == 0)); then
+        echo "Filename $keyPatternFoundError" 1>&2
+        echo "Hardcoding API keys is a major security issue -> https://bevigil.com/blog/exposed-hubspot-api-keys-compromise-1-6-million-users-data/" >&2
+        exit 1
+    fi
+    if [ ! -d "$filename" ]; then # if not directory, check content
+        occurrence=$(cat "$filename" | grep -E -e "$apiKeyPattern" 2>&1)
+        if (($? == 0)); then
+            echo "File $keyPatternFoundError" >&2
+            echo "Here : '$occurrence'" >&2
+            echo "Hardcoding API keys is a major security issue -> https://bevigil.com/blog/exposed-hubspot-api-keys-compromise-1-6-million-users-data/" >&2
+            exit 1
+        fi
+    fi
+}
+
+while IFS=''; read -r filename; do
+    check "$filename"
+done < <(find -not -path "*.git*" -and -not -name "*pre-commit");
