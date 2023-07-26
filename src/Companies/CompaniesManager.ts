@@ -1,6 +1,6 @@
 import { Api } from "Api";
 
-/*
+/**
 @brief Class providing services about companies.
 @note Not implemented.
 */

@@ -3,6 +3,11 @@
         "lib": ["DOM"],
         "allowJs": true,
         "strict": true,
-        "baseUrl": "src/"
+        "baseUrl": "src/",
+        "skipLibCheck": true
+    },
+    "typedocOptions": {
+        "entryPoints": ["src/index.ts"],
+        "out": "docs",
     }
 }

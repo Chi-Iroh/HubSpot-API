@@ -1,7 +1,7 @@
 import { Api } from "../Api";
 import * as ApiUrl from "../ApiUrl"
 
-/*
+/**
 @brief Gets all contacts.
 @param api API to send requests
 @returns request response (Promise<any>)

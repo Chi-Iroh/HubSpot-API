@@ -1,7 +1,7 @@
 import { Api } from "../Api";
 import * as ApiUrl from "../ApiUrl"
 
-/*
+/**
 @brief Information about a contact.
 */
 export interface ContactProperties {
@@ -14,7 +14,7 @@ export interface ContactProperties {
     lifeCycleStage  : string;
 };
 
-/*
+/**
 @brief Creates a contact.
 @param api API to send requests
 @param contactProperties contact information

@@ -5,7 +5,7 @@ import { TransactionsManager } from "./Transactions/TransactionsManager";
 import { Api } from "./Api";
 import { PrintError } from "./PrintError";
 
-/*
+/**
 @brief Client class to use any feature of the API.
 */
 export class Client {
