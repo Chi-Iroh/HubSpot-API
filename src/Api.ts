@@ -1,6 +1,5 @@
 import axios, { AxiosHeaders, AxiosResponse } from "axios";
 import { ApiTarget } from "./ApiUrl";
-import * as ApiUrl from "./ApiUrl";
 
 export type HttpRequestType = "GET" | "POST";
 
