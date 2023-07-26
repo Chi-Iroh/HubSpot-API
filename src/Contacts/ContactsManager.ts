@@ -3,6 +3,9 @@ import { ContactProperties, Create } from "./Create";
 import { GetAll } from "./GetAll";
 import { GetById } from "./GetById";
 
+/*
+@brief Class providing services about contacts.
+*/
 export class ContactsManager {
     private api : Api;
 

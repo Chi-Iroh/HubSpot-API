@@ -1,6 +1,9 @@
 import { Api } from "../Api";
 import * as ApiUrl from "../ApiUrl"
 
+/*
+@brief Information about a contact.
+*/
 export interface ContactProperties {
     email           : string;
     firstName       : string;
@@ -11,6 +14,13 @@ export interface ContactProperties {
     lifeCycleStage  : string;
 };
 
+/*
+@brief Creates a contact.
+@param api API to send requests
+@param contactProperties contact information
+@returns request response (Promise<any>)
+@throw AxiosError
+*/
 export function Create(api : Api, contactProperties : ContactProperties) : Promise<any> {
     const properties = JSON.stringify(
         {

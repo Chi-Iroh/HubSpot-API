@@ -1,5 +1,8 @@
 import { AxiosError } from "axios";
 
+/*
+Wraps HubSpot API error context.
+*/
 interface HubSpotError {
     status          : string;
     message         : string;
@@ -7,6 +10,10 @@ interface HubSpotError {
     category        : string;
 };
 
+/*
+@brief Displays more human-readable errors in standard error stream.
+@note If HubSpot API error, only displays HubSpot-related context, otherwise display everything.
+*/
 export function PrintError(error : AxiosError) : void {
     const hubSpotError : HubSpotError = error.response?.data as HubSpotError;
 
