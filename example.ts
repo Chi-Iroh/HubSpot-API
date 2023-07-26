@@ -1,6 +1,6 @@
 import { Client } from "./src/Client";
 
-function printContact(contact) {
+function PrintContact(contact) {
     console.log(
         `Contact n°${contact.id}\n`,
         `\tFirst name : ${contact.properties.firstname}\n`,
@@ -11,7 +11,7 @@ function printContact(contact) {
     );
 }
 
-async function example() {
+async function Example() {
     let client = new Client("HubSpot API Key");
     await client.contactsManager.GetAll().then(console.log);
     await client.contactsManager.GetById(151).then(console.log);
@@ -27,10 +27,10 @@ async function example() {
     await client.contactsManager.GetAll().then(
         (contacts) => {
             for (let contact of contacts.results) {
-                printContact(contact);
+                PrintContact(contact);
             }
         }
     );
 }
 
-example();
+Example();
