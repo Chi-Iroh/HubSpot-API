@@ -1,5 +1,6 @@
 # [HubSpot API](https://developers.hubspot.com/docs/api/overview) Client
-### In TypeScript
+
+A TypeScript client to communicate with HubSpot API.
 
 <br>
 
@@ -20,24 +21,39 @@ graph TD;
     A --> E[Tickets manager];
     A --> F[Transactions manager];
     A --> G[Error display];
-    C --> H[Create];
-    C --> I[Get all];
-    C --> J[Get by ID];
-    C --> K["Remove (NI)"];
-    D --> L["Get all (NI)"];
-    D --> M["Get by ID (NI)"];
-    D --> N["Create (NI)"];
-    D --> O["Update (NI)"];
-    D --> P["Remove (NI)"];
-    E --> Q["Get all (NI)"];
-    E --> R["Get by ID (NI)"];
-    E --> S["Create (NI)"];
-    E --> T["Update (NI)"];
-    E --> U["Remove (NI)"];
-    F --> V["Get all (NI)"];
-    F --> W["Get by ID (NI)"];
-    F --> X["Create (NI)"];
-    F --> Y["Update (NI)"];
-    F --> Z["Remove (NI)"];
 ```
+
 Note: <ins>NI</ins> = **Not Implemented**
+
+```mermaid
+graph TD;
+    A[Contacts manager] --> B[Create];
+    A --> C[Get all];
+    A --> D[Get by ID];
+    A --> E["Remove (NI)"];
+```
+
+```mermaid
+graph TD;
+    A[Companies manager] --> B["Get all (NI)"];
+    A --> C["Get by ID (NI)"];
+    A --> D["Create (NI)"];
+    A --> E["Update (NI)"];
+    A --> F["Remove (NI)"];
+```
+```mermaid
+graph TD;
+    A[Tickets manager] --> B["Get all (NI)"];
+    A --> C["Get by ID (NI)"];
+    A --> D["Create (NI)"];
+    A --> E["Update (NI)"];
+    A --> F["Remove (NI)"];
+```
+```mermaid
+graph TD;
+    A[Transactions manager] --> B["Get all (NI)"];
+    A --> C["Get by ID (NI)"];
+    A --> D["Create (NI)"];
+    A --> E["Update (NI)"];
+    A --> F["Remove (NI)"];
+```
