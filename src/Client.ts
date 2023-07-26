@@ -7,7 +7,7 @@ import { PrintError } from "./PrintError";
 
 export class Client {
     private apiKey : string;
-    private Api : Api;
+    private api : Api;
     public contactsManager : ContactsManager;
     public companiesManager : CompaniesManager;
     public ticketsManager : TicketsManager;
@@ -15,11 +15,11 @@ export class Client {
 
     constructor(apiKey : string) {
         this.apiKey = apiKey;
-        this.Api = new Api(this.apiKey);
-        this.contactsManager = new ContactsManager(this.Api);
-        this.companiesManager = new CompaniesManager(this.Api);
-        this.ticketsManager = new TicketsManager(this.Api);
-        this.transactionsManager = new TransactionsManager(this.Api);
+        this.api = new Api(this.apiKey);
+        this.contactsManager = new ContactsManager(this.api);
+        this.companiesManager = new CompaniesManager(this.api);
+        this.ticketsManager = new TicketsManager(this.api);
+        this.transactionsManager = new TransactionsManager(this.api);
     }
 
     public static PrintError : Function = PrintError;

@@ -11,7 +11,7 @@ export interface ContactProperties {
     lifeCycleStage  : string;
 };
 
-export function Create(Api : Api, contactProperties : ContactProperties) : Promise<any> {
+export function Create(api : Api, contactProperties : ContactProperties) : Promise<any> {
     const properties = JSON.stringify(
         {
             "properties" : {
@@ -26,5 +26,5 @@ export function Create(Api : Api, contactProperties : ContactProperties) : Promi
         }
     );
 
-    return Api.create(ApiUrl["API_URL_CONTACTS"], properties);
+    return api.create(ApiUrl["API_URL_CONTACTS"], properties);
 }

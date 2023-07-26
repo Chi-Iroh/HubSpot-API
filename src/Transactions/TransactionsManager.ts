@@ -1,9 +1,9 @@
 import { Api } from "Api";
 
 export class TransactionsManager {
-    private Api : Api;
+    private api : Api;
 
-    constructor(Api : Api) {
-        this.Api = Api;
+    constructor(api : Api) {
+        this.api = api;
     }
 };
