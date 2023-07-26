@@ -1,6 +1,6 @@
 import * as ApiUrl from "../ApiUrl";
-import { HttpRequestManager } from "../HttpRequestManager";
+import { Api } from "../Api";
 
-export function GetById(httpRequestManager : HttpRequestManager, id : number) : Promise<any> {
-    return httpRequestManager.find(ApiUrl["API_URL_CONTACTS"], id);
+export function GetById(Api : Api, id : number) : Promise<any> {
+    return Api.find(ApiUrl["API_URL_CONTACTS"], id);
 }

@@ -1,6 +1,6 @@
-import { HttpRequestManager } from "../HttpRequestManager";
+import { Api } from "../Api";
 import * as ApiUrl from "../ApiUrl"
 
-export function GetAll(httpRequestManager : HttpRequestManager) : Promise<any> {
-    return httpRequestManager.findAll(ApiUrl["API_URL_CONTACTS"]);
+export function GetAll(Api : Api) : Promise<any> {
+    return Api.findAll(ApiUrl["API_URL_CONTACTS"]);
 }

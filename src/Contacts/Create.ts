@@ -1,4 +1,4 @@
-import { HttpRequestManager } from "../HttpRequestManager";
+import { Api } from "../Api";
 import * as ApiUrl from "../ApiUrl"
 
 export interface ContactProperties {
@@ -11,7 +11,7 @@ export interface ContactProperties {
     lifeCycleStage  : string;
 };
 
-export function Create(httpRequestManager : HttpRequestManager, contactProperties : ContactProperties) : Promise<any> {
+export function Create(Api : Api, contactProperties : ContactProperties) : Promise<any> {
     const properties = JSON.stringify(
         {
             "properties" : {
@@ -26,5 +26,5 @@ export function Create(httpRequestManager : HttpRequestManager, contactPropertie
         }
     );
 
-    return httpRequestManager.create(ApiUrl["API_URL_CONTACTS"], properties);
+    return Api.create(ApiUrl["API_URL_CONTACTS"], properties);
 }

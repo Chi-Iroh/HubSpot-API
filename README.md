@@ -102,7 +102,7 @@ graph TD;
 
 Each of these 4 subclasses aims to manage one kind of API provided by HubSpot, to separate tasks.  
 They provide some services by sending HTTP requests to HubSpot APIs.
-The `Client` class has a member of type `HttpRequestManager`, which is used by subclasses and their services.  
+The `Client` class has a member of type `Api`, which is used by subclasses and their services.  
 It permits services delegating the request to a specific class whose unique job is this, following **SRP** (Single Responsibility Principle) in SOLID.
 
 ## Hooks

@@ -4,7 +4,7 @@ import * as ApiUrl from "./ApiUrl";
 
 export type HttpRequestType = "GET" | "POST";
 
-export class HttpRequestManager {
+export class Api {
     private apiKey : string;
     private authenticationHeader : AxiosHeaders;
 

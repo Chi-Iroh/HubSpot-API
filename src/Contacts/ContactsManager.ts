@@ -1,16 +1,16 @@
-import { HttpRequestManager } from "../HttpRequestManager";
+import { Api } from "../Api";
 import { ContactProperties, Create } from "./Create";
 import { GetAll } from "./GetAll";
 import { GetById } from "./GetById";
 
 export class ContactsManager {
-    private httpRequestManager : HttpRequestManager;
+    private Api : Api;
 
-    public Create : Function = (contactProperties : ContactProperties) => Create(this.httpRequestManager, contactProperties);
-    public GetAll : Function = () => GetAll(this.httpRequestManager);
-    public GetById : Function = (id : number) => GetById(this.httpRequestManager, id);
+    public Create : Function = (contactProperties : ContactProperties) => Create(this.Api, contactProperties);
+    public GetAll : Function = () => GetAll(this.Api);
+    public GetById : Function = (id : number) => GetById(this.Api, id);
 
-    constructor(httpRequestManager : HttpRequestManager) {
-        this.httpRequestManager = httpRequestManager;
+    constructor(Api : Api) {
+        this.Api = Api;
     }
 };

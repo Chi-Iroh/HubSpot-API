@@ -1,9 +1,9 @@
-import { HttpRequestManager } from "HttpRequestManager";
+import { Api } from "Api";
 
 export class TicketsManager {
-    private httpRequestManager : HttpRequestManager;
+    private Api : Api;
 
-    constructor(httpRequestManager : HttpRequestManager) {
-        this.httpRequestManager = httpRequestManager;
+    constructor(Api : Api) {
+        this.Api = Api;
     }
 };
