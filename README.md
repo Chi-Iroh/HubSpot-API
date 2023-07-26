@@ -23,15 +23,11 @@ graph TD;
     A --> G[Error display];
 ```
 
-`Client` is the main class and encapsulates multiple managers related to multiple HubSpot APIs (contacts, companies etc..).
-<br>
-Aside, there is HTTP request manager which sends the API key in the request, removing this burden from the endpoints.
-<br>
-Then, `Client` has a class to display errors thrown by the request (only formatting its message to make it clearer on a terminal, in a real application one might not use it).
-<br>
->Please note that only TypeScript errors are supported for now (as they're JSON-formatted), things like 404 not found are HTML pages and need different parsing.
+`Client` is the main class and encapsulates multiple managers related to multiple HubSpot APIs (contacts, companies etc..).  
+Aside, there is HTTP request manager which sends the API key in the request, removing this burden from the endpoints.  
+Then, `Client` has a class to display errors thrown by the request (only formatting its message to make it clearer on a terminal, in a real application one might not use it).  
+>Please note that only TypeScript errors are supported for now (as they're JSON-formatted), things like 404 not found are HTML pages and need different parsing.  
 
-<br>
 The architecture represents a complete project, most of the features aren't implemented (they're marked with <ins>NI</ins> -> <b>Not Implemented</b>).
 The main point here is how is the code organized rather than rushing features and ending with an unmaintable and duplicated code.
 
