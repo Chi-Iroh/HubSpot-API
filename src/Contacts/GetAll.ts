@@ -1,8 +1,9 @@
 import { HttpRequestManager } from "../HttpRequestManager";
+import * as ApiUrl from "../ApiUrl"
 
 export function GetAll(httpRequestManager : HttpRequestManager) : Promise<any> {
     return httpRequestManager.send(
-        "https://api.hubapi.com/crm/v3/objects/contacts",
+        ApiUrl.API_URL_CONTACTS,
         "GET"
     );
 }

@@ -1,4 +1,5 @@
 import { HttpRequestManager } from "../HttpRequestManager";
+import * as ApiUrl from "../ApiUrl"
 
 export interface ContactProperties {
     email           : string;
@@ -26,7 +27,7 @@ export function Create(httpRequestManager : HttpRequestManager, contactPropertie
     );
 
     return httpRequestManager.send(
-        "https://api.hubapi.com/crm/v3/objects/contacts/",
+        ApiUrl.API_URL_CONTACTS,
         "POST",
         new Headers({
             "content-type" : "application/json;charset=UTF-8"
