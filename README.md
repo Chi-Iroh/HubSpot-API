@@ -2,7 +2,22 @@
 
 A TypeScript client to communicate with HubSpot API.
 
-<br>
+My first ever project in TypeScript and web languages in general, I worked on it for 2 days (commit date on GitHub isn't accurate because I rebased the repo, use git log instead).  
+As I haven't yet much knowledge about good practices in web or even in TypeScript, I choose to imlement just a few features and focus on the architecture, as a good organization is way more complicated than a single feature.  
+Therefore, a new feature can easily be added to the project.  
+
+<hr style="border:0px solid gray">
+
+Please take a look on the GitHub issues, a friend of mine works in full-stack development and reviewed my code.  
+His point of view helped me a lot to think about ways to improve my work, especially about scalability.  
+He gave me confidence in most of my choices and said my code is globally okay, but he  took time to share his experience with me to enhance it.  
+
+<hr style="border:0px solid gray">
+
+## Git workflow
+
+As the project is quite small for now, and because of my lack of experience in the language, it took me some time to understand the direction to take.  
+That's why I didn't create any branch like I usually do, but I created a dev one to solve one of my friend's issues, then merged it into master when closed.  
 
 ## Setup
 Install <ins>nodejs</ins> and <ins>ts-node</ins> with your package manager (pacman, apt, dnf etc..).
@@ -11,6 +26,8 @@ Install <ins>nodejs</ins> and <ins>ts-node</ins> with your package manager (pacm
 ```bash
 ts-node Example.ts
 ```
+
+Example.ts is only here to show how to use my client, it has nothing to do in a real-world app. Same for Client.PrintError, its interest is quite limited in a website with a backend client, I made it to test my features with Example.ts and format errors in a more human-readable way.  
 
 ## Architecture
 ```mermaid
