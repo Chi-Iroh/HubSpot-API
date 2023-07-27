@@ -13,9 +13,9 @@ function PrintContact(contact : any) : void {
 }
 
 async function Example(client : Client) : Promise<void> {
-    await client.contactsManager.GetById(151).then(console.log);
-    await client.contactsManager.GetAll().then(console.log);
-    await client.contactsManager.Create(
+    await client.contactsManager.GetById(151).then(console.log);    // Get contact n°151
+    await client.contactsManager.GetAll().then(console.log);        // Gets all contacts
+    await client.contactsManager.Create(                            // Create a contact with these information
         {
             "email"             : "example94@hubspot.com",
             "firstName"         : "Jane",
@@ -26,6 +26,8 @@ async function Example(client : Client) : Promise<void> {
             "lifeCycleStage"    : "marketingqualifiedlead"
         }
     );
+
+    // Gets all contacts but improves display
     await client.contactsManager.GetAll().then(
         (contacts : any) => {
             for (let contact of contacts.results) {
@@ -37,13 +39,13 @@ async function Example(client : Client) : Promise<void> {
 
 async function Main() : Promise<void> {
     try {
-        let client = new Client("HubSpot API Key");
+        let client = new Client("HubSpot API Key"); // instantion with the API Key
         await Example(client);
     } catch (error : any) {
         if (error instanceof AxiosError) {
-            Client.PrintError(error);
+            Client.PrintError(error);               // PrintError can handle AxiosError
         } else {
-            console.error(error);
+            console.error(error);                   // Any TypeScript error that may happen
         }
     }
 }

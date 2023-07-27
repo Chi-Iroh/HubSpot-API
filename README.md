@@ -14,6 +14,9 @@ He gave me confidence in most of my choices and said my code is globally okay, b
 
 <hr style="border:0px solid gray">
 
+## How to
+[Example file](Example.ts) shows how to instantiate and use the client.  
+
 ## Git workflow
 
 As the project is quite small for now, and because of my lack of experience in the language, it took me some time to understand the direction to take.  
