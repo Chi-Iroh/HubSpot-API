@@ -23,7 +23,8 @@ As the project is quite small for now, and because of my lack of experience in t
 That's why I didn't create any branch like I usually do, but I created a dev one to solve one of my friend's issues, then merged it into master when closed.  
 
 ## Documentation
-Generated with TypeDoc : `npx typedoc --entryPointStrategy expand ./src`
+Generated with TypeDoc : `npx typedoc --entryPointStrategy expand ./src`  
+A possible improvement would be to execute that command after each push, using Github Actions.
 
 ## Setup
 Install <ins>nodejs</ins> and <ins>ts-node</ins> with your package manager (pacman, apt, dnf etc..).
