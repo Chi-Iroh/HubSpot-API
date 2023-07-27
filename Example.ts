@@ -16,13 +16,15 @@ async function Example(client : Client) : Promise<void> {
     await client.contactsManager.GetById(151).then(console.log);
     await client.contactsManager.GetAll().then(console.log);
     await client.contactsManager.Create(
-        "example7@hubspot.com",
-        "Jane",
-        "Doe",
-        "(555) 555-5555",
-        "HubSpot",
-        "hubspot.com",
-        "marketingqualifiedlead"
+        {
+            "email"             : "example94@hubspot.com",
+            "firstName"         : "Jane",
+            "lastName"          : "Doe",
+            "phone"             : "(555) 555-5555",
+            "company"           : "HubSpot",
+            "website"           : "hubspot.com",
+            "lifeCycleStage"    : "marketingqualifiedlead"
+        }
     );
     await client.contactsManager.GetAll().then(
         (contacts : any) => {

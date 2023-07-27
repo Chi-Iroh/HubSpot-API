@@ -12,11 +12,10 @@ export type HttpRequestType = "GET" | "POST";
 */
 export class Api {
     private apiKey : string;
-    private authenticationHeader : AxiosHeaders;
 
     constructor(apiKey : string) {
         this.apiKey = apiKey;
-        this.authenticationHeader = new AxiosHeaders({ "Authorization" : `Bearer ${this.apiKey}` });
+        axios.defaults.headers["Authorization"] = `Bearer ${this.apiKey}`;
     }
 
     /**
@@ -28,7 +27,7 @@ export class Api {
     public async findAll(target : ApiTarget) : Promise<any> {
         const response = await axios.get(
             target,
-            { "headers" : this.authenticationHeader }
+            {}
         );
         return await response.data;
     }
@@ -43,7 +42,7 @@ export class Api {
     public async find(target : ApiTarget, id : number) : Promise<any> {
         const response = await axios.get(
             `${target}/${id}`,
-            { "headers" : this.authenticationHeader }
+            {}
         );
         return await response.data;
     }
@@ -58,7 +57,11 @@ export class Api {
     public async create(target : ApiTarget, body : string) : Promise<any> {
         const response = await axios.post(
             target,
-            { "headers" : this.authenticationHeader.concat({"content-type" : "application/json;charset=UTF-8"}) }
+            {
+                "headers" : {
+                    "content-type" : "application/json;charset=UTF-8"
+                }
+            }
         );
         return await response.data;
     }
